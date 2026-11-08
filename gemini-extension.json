@@ -1,0 +1,11 @@
+{
+  "name": "tvarka-sign",
+  "version": "1.0.0",
+  "description": "Prepare documents, request simple or qualified electronic signatures, and track signing in your Tvarka workspace.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "tvarka-sign": {
+      "httpUrl": "https://sign-api.tvarka.pro/mcp"
+    }
+  }
+}
