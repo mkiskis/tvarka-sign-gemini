@@ -2,7 +2,7 @@
 
 Official [Tvarka Sign](https://tvarka.eu/) extension for [Gemini CLI](https://geminicli.com/) and compatible Gemini agent environments.
 
-Prepare PDF documents from Markdown, send documents for simple electronic signature (`esign`) or eIDAS qualified electronic signature (`qualified` via Smart-ID, Mobile-ID, or eID card/NFC), track signer progress, send workspace templates and Tvarka Formos requests, or sign a vault PDF yourself (`sign_now`).
+Prepare PDF documents from Markdown, send documents for simple electronic signature (`esign`) or eIDAS qualified electronic signature (`qualified` via Smart-ID, Mobile-ID, or eID card/NFC), track signer progress, send workspace templates and Tvarka Formos requests, sign a vault PDF yourself (`sign_now`), timestamp any file and capture web pages as sealed evidence.
 
 ## Install
 
@@ -18,13 +18,13 @@ The extension connects to `https://sign-api.tvarka.pro/mcp` over Streamable HTTP
 
 ### 2. API key (`tvarka.eu` email workspaces or headless use)
 
-To authenticate with a Tvarka API key (`tsk_live_...` or `tsk_test_...`) against `https://sign-api.tvarka.eu/mcp` or `https://sign-api.tvarka.pro/mcp`, configure `mcpServers` in `.gemini/settings.json`:
+To authenticate with a Tvarka API key (`tsk_live_...` or `tsk_test_...`), configure `mcpServers` in `.gemini/settings.json`. The extension's own server is used, so keys from tvarka.pro and tvarka.eu workspaces work the same way:
 
 ```json
 {
   "mcpServers": {
     "tvarka-sign": {
-      "httpUrl": "https://sign-api.tvarka.eu/mcp",
+      "httpUrl": "https://sign-api.tvarka.pro/mcp",
       "headers": {
         "X-Api-Key": "$TVARKA_API_KEY"
       }
@@ -53,6 +53,14 @@ To authenticate with a Tvarka API key (`tsk_live_...` or `tsk_test_...`) against
 | `get_form_request` | Read the status, events, and submitted values of a form request. |
 | `sign_now` | Sign a vault PDF yourself by Smart-ID or Mobile-ID on your phone. |
 | `get_signature` | Poll a `sign_now` signature and retrieve `signedDocumentUrl` when completed. |
+| `timestamp_document` | Put a qualified or simple timestamp on a document of any format. A PDF keeps its form; other files come back in ASiC-S. |
+| `certify_webpage` | Capture a public web page and seal it in a certificate PDF under a qualified timestamp, also from a chosen place. |
+| `get_timestamp` | Fetch the status and result of one timestamp, with the download link once it is sealed. |
+| `create_capture_monitor` | Capture a web page now and again on a schedule (every 24 hours and 30 captures by default). |
+| `get_capture_monitor` | Read the schedule, the state and the latest timestamp of a capture monitor. |
+| `update_capture_monitor` | Pause or resume the future captures of a monitor. |
+| `create_capture_bundle` | Queue 1 to 20 web pages as one bundle with a manifest under a qualified timestamp. |
+| `get_capture_bundle` | Read the capture outcomes of a bundle and the download link of its ZIP. |
 
 ## Links
 

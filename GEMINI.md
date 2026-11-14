@@ -41,3 +41,14 @@ Connects Gemini CLI and compatible Gemini agent environments to your Tvarka Sign
 
 - `sign_now`: Start a qualified signature on a vault `documentId` for the connected person only, using `method` (`smart_id` or `mobile_id`) on their own phone. Display the returned `verificationCode` to the user immediately.
 - `get_signature`: Poll `signatureId` from `sign_now`, display any updated `nextAction` verification code, and return `signedDocumentUrl` once completed.
+
+### Qualified timestamps
+
+- `timestamp_document`: Put a qualified timestamp on a document of any format (`markdown`, `fileUrl`, `fileBase64` with `fileName`, `file`, or `documentId`). A PDF keeps its form; other files come back in ASiC-S. Optional `qualified`, `secondTimestamp`, `title`, and `externalId`.
+- `certify_webpage`: Capture a public web page (`url`) as it looks now and seal the capture in a certificate PDF with a qualified timestamp. Optional `location` or `locations` (2 to 5 places), `device`, `locale`, `consent`, `recheckAt`, `secondTimestamp`, `language`, `title`, and `externalId`.
+- `get_timestamp`: Fetch the status and result of one `timestampId`, with the download link once it is sealed.
+- `create_capture_monitor`: Capture a public web page now and again on a schedule. It defaults to every 24 hours and 30 captures. Each capture has the usual capture price, and failed attempts count toward `maxCaptures`.
+- `get_capture_monitor`: Read the schedule, the state and the latest `timestampId` of one capture monitor.
+- `update_capture_monitor`: Pause the future captures of a monitor, or resume them from now. A capture already queued still runs.
+- `create_capture_bundle`: Queue 1 to 20 different web pages as one bundle. Each capture has the usual capture price. The finished ZIP holds a manifest under a qualified timestamp, the numbered exhibits and the captures that failed.
+- `get_capture_bundle`: Read the capture outcomes of a bundle and the download link of its ZIP.
