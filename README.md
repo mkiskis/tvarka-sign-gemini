@@ -64,8 +64,10 @@ To authenticate with a Tvarka API key (`tsk_live_...` or `tsk_test_...`), config
 
 ## Links
 
-- Documentation (EU): https://sign-api.tvarka.eu/docs
-- Documentation (LT / Pro): https://sign-api.tvarka.pro/docs
+- Google Workspace Marketplace (Docs & Drive add-on): https://workspace.google.com/marketplace/app/tvarka_sign/198331254079
+- Google Workspace setup guide: https://tvarka.eu/google-workspace/
+- Documentation (EU): https://sign-api.tvarka.eu/docs#mcp
+- Documentation (LT / Pro): https://sign-api.tvarka.pro/docs#mcp
 - Tvarka Sign (EU): https://tvarka.eu/
 - Tvarka Sign (LT): https://sign.tvarka.pro/
 - Privacy policy: https://tvarka.eu/privacy/

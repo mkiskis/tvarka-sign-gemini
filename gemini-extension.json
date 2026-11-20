@@ -1,6 +1,6 @@
 {
   "name": "tvarka-sign",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Prepare documents, request simple or qualified electronic signatures, and track signing in your Tvarka workspace.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
